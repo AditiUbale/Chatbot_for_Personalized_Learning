@@ -1,0 +1,13 @@
+rasa==3.6.0
+rasa-sdk==3.6.0
+streamlit==1.18.0
+requests==2.28.2
+sqlalchemy<2.0
+sanic-cors
+setuptools==65.5.0
+python-dotenv==1.0.0        # For managing environment variables like API keys
+google-api-python-client==2.86.0  # Required if fetching YouTube videos via API
+pandas==1.5.3               # Useful for handling data, if needed
+numpy==1.23.5               # Often used with pandas
+spacy==3.6.1                # For NLP if used within Rasa or your custom logic
+

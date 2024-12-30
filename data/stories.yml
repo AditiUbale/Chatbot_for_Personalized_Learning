@@ -1,0 +1,46 @@
+version: "3.1"
+stories:
+  - story: greet and ask for video
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_video
+      - action: utter_ask_video
+
+  - story: greet and ask for courses
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_courses
+      - action: utter_ask_courses
+
+  - story: ask for recommendations
+    steps:
+      - intent: ask_recommendations
+      - action: utter_ask_recommendations
+      - action: action_fetch_recommendations
+
+  - story: user asks for video recommendations
+    steps:
+      - intent: ask_video
+      - action: utter_ask_video
+      - action: action_fetch_recommendations
+
+  - story: user asks for course recommendations
+    steps:
+      - intent: ask_courses
+      - action: utter_ask_courses
+      - action: action_fetch_recommendations
+
+  - story: goodbye after asking for resources
+    steps:
+      - intent: ask_recommendations
+      - action: utter_ask_recommendations
+      - action: action_fetch_recommendations
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: simple goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye

@@ -1,0 +1,56 @@
+version: "3.1"
+
+intents:
+  - ask_courses
+  - ask_video
+  - greet
+  - goodbye
+  - ask_recommendations
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you today?"
+  
+  utter_ask_courses:
+    - text: "I can help with that! What kind of courses are you looking for?"
+  
+  utter_ask_video:
+    - text: "I can suggest some videos. What type of videos are you interested in?"
+
+  utter_ask_recommendations:
+    - text: "I can recommend some learning materials. What would you prefer, courses or videos?"
+
+  utter_goodbye:
+    - text: "Goodbye! Have a great day!"
+
+actions:
+  - action_fetch_recommendations
+
+entities:
+  - course
+  - video
+
+slots:
+  course:
+    type: text
+    mappings:
+      - type: from_text
+        intent: ask_courses
+        entity: course
+  video:
+    type: text
+    mappings:
+      - type: from_text
+        intent: ask_video
+        entity: video
+
+config:
+  nlu:
+    - name: SpacyTokenizer
+    - name: SpacyEntityExtractor
+  policies:
+    - name: MemoizationPolicy
+    - name: RulePolicy
+    - name: TEDPolicy
+      max_history: 5
+      epochs: 100

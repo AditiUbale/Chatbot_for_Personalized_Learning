@@ -1,0 +1,27 @@
+# REST channel configuration
+rest:
+
+# Tracker store configuration (default: in-memory)
+tracker_store:
+  type: sql
+  dialect: "sqlite"  # Change this to "postgresql" or "mysql" if using those databases
+  db: "rasa.db"      # SQLite database file
+  username:          # Add username if required (e.g., for PostgreSQL)
+  password:          # Add password if required
+  url:               # Leave blank for SQLite
+  login_db:          # Optional for databases like MongoDB
+
+# Lock store configuration
+#lock_store:
+  #type: inmemory
+
+# Action server endpoint
+action_endpoint:
+  url: "http://localhost:5055/webhook"
+
+# Event broker configuration (optional, for streaming events)
+# Uncomment if using an external message broker like RabbitMQ or Kafka
+# event_broker:
+#   type: "pika"
+#   url: "amqp://guest:guest@localhost/"
+#   queue: "rasa_events"
